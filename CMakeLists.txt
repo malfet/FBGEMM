@@ -314,7 +314,9 @@ if(MSVC)
       DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
   endif()
   install(TARGETS fbgemm DESTINATION ${CMAKE_INSTALL_LIBDIR})
-  install(TARGETS asmjit DESTINATION ${CMAKE_INSTALL_LIBDIR})
+  if(CMAKE_VERSION VERSION_GREATER 3.12)
+    install(TARGETS asmjit DESTINATION ${CMAKE_INSTALL_LIBDIR})
+  endif()
 endif()
 
 #Make project importable from the build directory
